@@ -1,6 +1,6 @@
-import { defineConfig } from "windicss/helpers";
-
-export default defineConfig({
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [ "./src/**/*.{js,ts,jsx,tsx}" ],
   preflight: false,
   darkMode: "class",
   shortcuts: {
@@ -34,4 +34,8 @@ export default defineConfig({
       },
     },
   },
-});
+  corePlugins: {
+    preflight: false,
+  },
+  plugins: [],
+};

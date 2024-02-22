@@ -6,7 +6,7 @@ import zhCN from "antd/locale/zh_CN";
 import ErrorBoundary from "@/components/error-boundary";
 import Router from "@/router";
 import { useGlobalStore } from "@/stores/global";
-import ErrorPage from "@/layouts/error-page";
+import ErrorPage from "@/pages/layouts/error-page";
 
 function App() {
   const { darkMode, lang } = useGlobalStore();
@@ -46,6 +46,7 @@ function App() {
   }, [darkMode]);
 
   return (
+    // ConfigProvider === config(antd) + provider
     <ConfigProvider
       theme={curTheme}
       locale={lang === "zh" ? zhCN : enUS}

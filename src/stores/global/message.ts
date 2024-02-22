@@ -1,6 +1,6 @@
-import {SocketMessageType} from '@/layouts/message-handle';
-import {create} from 'zustand';
-import {devtools} from 'zustand/middleware';
+import { SocketMessageType } from "@/layouts/message-handle";
+import { create } from "zustand";
+import { devtools } from "zustand/middleware";
 
 export interface SocketMessage {
   type: SocketMessageType;
@@ -12,7 +12,7 @@ interface State {
 }
 
 interface Action {
-  setLatestMessage: (latestMessage: State['latestMessage']) => void;
+  setLatestMessage: (latestMessage: State["latestMessage"]) => void;
 }
 
 export const useMessageStore = create<State & Action>()(
@@ -20,14 +20,14 @@ export const useMessageStore = create<State & Action>()(
     (set) => {
       return {
         latestMessage: null,
-        setLatestMessage: (latestMessage: State['latestMessage']) =>
+        setLatestMessage: (latestMessage: State["latestMessage"]) =>
           set({
             latestMessage,
           }),
       };
     },
     {
-      name: 'messageStore',
+      name: "messageStore",
     }
   )
 );

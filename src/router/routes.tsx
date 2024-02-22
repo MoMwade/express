@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* 自动导入 */
+/* vite打包 import.meta.glob  */
 import React from "react";
-export const modules = import.meta.glob("../pages/**/index.tsx");
+// glob语法
+// ** 任意目录名称
+// * 任意文件名称
+export const modules = import.meta.glob("../pages/**/*.tsx");
 
 export const componentPaths = Object.keys(modules).map((path) =>
   path.replace("../pages", "")

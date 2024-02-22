@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import App from "./app";
-import "@/assets/overwrite.css";
+import "@/assets/main.css";
 
 NProgress.configure({
   minimum: 0.3,

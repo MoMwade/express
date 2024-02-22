@@ -1,6 +1,5 @@
-interface CurrentUserDetail {
-  menus: any[];
-  authList: any[];
-  userName: string;
-  id: number;
+interface BaseRes<T> {
+  code: number;
+  data: T;
+  msg: string;
 }

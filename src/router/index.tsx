@@ -1,37 +1,35 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from "react";
+import type { RouteObject } from "react-router-dom";
 import {
-  RouteObject,
   RouterProvider,
   createBrowserRouter,
-  Navigate,
 } from "react-router-dom";
 import { App as AntApp } from "antd";
 import { antdUtils } from "@/utils/antd";
 import Login from "@/pages/login";
-import BasicLayout from "@/layouts";
-import ResetPassword from "@/pages/login/reset-password";
-import RouterErrorElement from "@/pages/router-error-element";
+import BasicLayout from "@/pages/layouts";
+import Dashboard from "@/pages/dashboard";
+   // import RouterErrorElement from "@/pages/error-pages/router-error-element";
 
 export const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: BasicLayout,
+    children: [
+      { path: "dashboard", Component: Dashboard },
+    ],
+  },
   {
     path: "/user/login",
     Component: Login,
   },
-  {
-    path: "/user/reset-password",
-    Component: ResetPassword,
-  },
-  {
-    path: "/",
-    element: <Navigate to="/user/login" />,
-  },
-  {
-    path: "*",
-    Component: BasicLayout,
-    children: [],
-    errorElement: <RouterErrorElement />,
-  },
+  // {
+  //   path: "*",
+  //   Component: BasicLayout,
+  //   children: [],
+  //   errorElement: <RouterErrorElement />,
+  // },
 ]);
 
 export const toLoginPage = () => {
@@ -75,7 +73,8 @@ const Router = () => {
     antdUtils.setNotificationInstance(notification);
     antdUtils.setModalInstance(modal);
   }, [notification, message, modal]);
-
+  // 通过RouterProvider的router属性 来渲染路由
+  // BrowserRouter + Routes + Route === RouterProvider + createBrowserRouter
   return <RouterProvider router={router} />;
 };
 
