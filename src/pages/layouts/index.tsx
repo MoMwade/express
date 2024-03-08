@@ -104,9 +104,9 @@ const Basiclayouts: FC = () => {
     /* uesEffect区 */
     useEffect(() => {
         if(!userMenus) return;
-        console.log(treeMenus(userMenus));
+        // console.log(treeMenus(userMenus));
         router.routes.push(...treeMenus(userMenus))
-        console.log(router.routes);
+        // console.log(router.routes);
     }, [userMenus])
     /* handel区 */
     if(userInfo?.data.code === 203) {
